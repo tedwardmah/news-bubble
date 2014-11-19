@@ -20,7 +20,7 @@ namespace :db do
 
     response = HTTParty.get('http://api.usatoday.com/open/articles/topnews/sports?api_key=mnsmzv8pam9p2p2sswj4efs8')
     arr = response["rss"]["channel"]["item"]
-    
+
     arr.each do |a|
       hash = {}
       hash[:api] = Api.find_by(name: "USA Today")
@@ -49,20 +49,20 @@ namespace :db do
 
 end
 
-namespace :db do 
+namespace :db do
     desc "load reddit data"
     task :load_reddit_data
 
   response = HTTParty.get('http://www.reddit.com/user/caindaddy/m/prosports/.json')
   arr = response["data"]
-    
+
     arr.each do |a|
       hash = {}
       hash[:api] = Api.find_by(name: "Reddit")
       hash[:topic] = Topic.find_by(name: "sports")
-      hash[:headline] = a["title"].to_i 
+      hash[:headline] = a["title"]
       hash[:url] = a["domain"].to_i
       hash[:date] = Date.at.new(a["created_utc"].to_i)
 
-    end  
+    end
 end

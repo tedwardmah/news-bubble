@@ -22,7 +22,7 @@ class ArticlesAPIController < ApplicationController
       hash = {}
       hash[:api] = Api.find_by(name: "Reddit")
       hash[:topic] = Topic.find_by(name: "sports")
-      hash[:headline] = a["title"] 
+      hash[:headline] = a["title"]
       hash[:url] = a["url"]
     end
   end
@@ -36,7 +36,15 @@ class ArticlesAPIController < ApplicationController
 
     articles.each do |article_data|
       hash = {}
-      hash[:url] = article_data['url']
+      hash[:api_id]     = Api.find_by(name: "NYT").id
+      hash[:topic_id]   = Topic.find_by(name: "sports").id
+      hash[:url]        = article_data['url']
+      hash[:headline]   = article_data['title']
+      hash[:lead]       = article_data['abstract']
+      hash[:date]       = Date.strptime(article_data['published_date'], "%Y-%m-%d")
+      hash[:source_id]  = article_data['id']
+
+      Article.create(hash)
     end
   end
 end
