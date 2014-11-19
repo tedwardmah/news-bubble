@@ -13,6 +13,7 @@ body {
 	height: 400px;
 	background-color: yellow;
 	opacity: .4;
+	position: block;
 }
 
 h1 {
