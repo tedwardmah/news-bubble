@@ -15,9 +15,9 @@ Rails.application.load_tasks
 
 
 namespace :db do
+  
   desc "load top USA Today articles in database"
   task :load_usa_today_data do
-
     response = HTTParty.get('http://api.usatoday.com/open/articles/topnews/sports?api_key=mnsmzv8pam9p2p2sswj4efs8')
     arr = response["rss"]["channel"]["item"]
     
@@ -30,12 +30,10 @@ namespace :db do
       hash[:date] = a['pubDate']
       Article.create(hash)
     end
-
   end
 
   desc "load reddit data"
-    task :load_reddit_data
-
+  task :load_reddit_data do
     response = HTTParty.get('http://www.reddit.com/user/caindaddy/m/prosports/.json')
     arr = response["data"]["children"]
     
@@ -63,7 +61,6 @@ namespace :db do
     Topic.create({name: "sports"})
 
   end
-
 end
 
 
