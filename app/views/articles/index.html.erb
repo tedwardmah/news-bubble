@@ -1,10 +1,12 @@
 
 <ul>
-	<% @articles.each do article %>
+	<% @articles.each do |article| %>
 
-
+	
 		<li>
-			<%= article.headline %>
+			<div class="bubble">
+				<%= article.headline %>
+			</div>
 		</li>
 
 	<% end %>
