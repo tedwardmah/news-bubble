@@ -14,7 +14,7 @@ class ArticlesAPIController < ApplicationController
       Article.create!(hash)
     end
   
-  @article = Article.all
+    @article = Article.all
 
   end
 
