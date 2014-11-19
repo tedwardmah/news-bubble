@@ -5,9 +5,17 @@ class ArticlesAPIController < ApplicationController
 
     response = HTTParty.get('http://api.usatoday.com/open/articles/topnews/sports?api_key=mnsmzv8pam9p2p2sswj4efs8')
 
-    articles_array = response["rss"]["channel"]["item"]
+    arr = response["rss"]["channel"]["item"]
     
- 
+    titles = arr.map do |a|
+      a["title"]
+      end
+    links = arr.map do |a|
+      a["link"]
+    end
+    
+    
+
   end
 
 
