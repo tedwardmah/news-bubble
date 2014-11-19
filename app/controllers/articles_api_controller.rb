@@ -17,4 +17,16 @@ class ArticlesAPIController < ApplicationController
     @article = Article.all
 
   end
+
+  def reddit
+    response = HTTParty.get('http://www.reddit.com/user/caindaddy/m/prosports/.json')
+  api_response = response["data"]
+  arr = response
+    arr.each do |a|
+      hash = {}
+      hash[:api] = Api.find_by(name: "Reddit")
+      hash[:topic] = Topic.find_by(name: "sports")
+      hash[:headline] = a["title"] 
+      hash[:url] = a["url"]
+  end
 end
