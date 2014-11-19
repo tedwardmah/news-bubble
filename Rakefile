@@ -48,3 +48,21 @@ namespace :db do
   end
 
 end
+
+namespace :db do 
+    desc "load reddit data"
+    task :load_reddit_data
+
+  response = HTTParty.get('http://www.reddit.com/user/caindaddy/m/prosports/.json')
+  arr = response["data"]
+    
+    arr.each do |a|
+      hash = {}
+      hash[:api] = Api.find_by(name: "Reddit")
+      hash[:topic] = Topic.find_by(name: "sports")
+      hash[:headline] = a["title"].to_i 
+      hash[:url] = a["domain"].to_i
+      hash[:date] = Date.at.new(a["created_utc"].to_i)
+
+    end  
+end
