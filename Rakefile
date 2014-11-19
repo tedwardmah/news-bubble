@@ -4,6 +4,7 @@
 require File.expand_path('../config/application', __FILE__)
 require './app/models/api'
 require './app/models/topic'
+require './app/models/article'
 
 ActiveRecord::Base.establish_connection({
   adapter: 'postgresql',
