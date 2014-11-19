@@ -1,6 +1,8 @@
 body {
 	background-image: url(http://fast.swide.com/wp-content/uploads/1986-white-Ferrari-Testarossa-miami-vice-%20cover.jpg);
-	background-position: fixed;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: 100% 100%;
 	font-family: calibri;
 }
 
@@ -10,4 +12,9 @@ body {
 	width: 400px;
 	height: 400px;
 	background-color: yellow;
+}
+
+h1 {
+	text-align: center;
+	font-size: 50px;
 }
