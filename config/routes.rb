@@ -4,4 +4,7 @@ Rails.application.routes.draw do
 
   resources :articles
 
+  resources :words 
+  root :to => "words#index"
+
 end
