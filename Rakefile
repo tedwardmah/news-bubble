@@ -51,7 +51,7 @@ namespace :db do
       hash[:source] = a["domain"]
       hash[:img_url] = a["thumbnail"]
       hash[:url] = a["url"]
-      hash[:lead] = a["selftext"] != "" ? a['selftext'] : "No description available...click link to read more!"
+      hash[:lead] = a["selftext"]
       hash[:date] = Time.at(a["created_utc"].to_i)
       article = Article.create(hash)
       article.parse_article
