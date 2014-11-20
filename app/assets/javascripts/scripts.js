@@ -5,4 +5,5 @@ $(".articles").hover(function(){
 		}, function() {
     	$(this).animate({ width: "820px", height: "80px" });
 	});
+
 });
