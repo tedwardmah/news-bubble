@@ -5,6 +5,8 @@ require File.expand_path('../config/application', __FILE__)
 require './app/models/api'
 require './app/models/topic'
 require './app/models/article'
+require './app/models/word'
+require './app/models/mention'
 
 ActiveRecord::Base.establish_connection({
   adapter: 'postgresql',
@@ -25,11 +27,14 @@ namespace :db do
       hash = {}
       hash[:api] = Api.find_by(name: "USA Today")
       hash[:topic] = Topic.find_by(name: "sports")
+      hash[:source] = "USA Today"
       hash[:headline] = a['title']
       hash[:url] = a['link']
-      hash[:date] = a['pubDate']
+      hash[:date] = Date.parse(a['pubDate'])
       hash[:lead] = a["description"]
-      Article.create(hash)
+      hash[:img_url] = nil
+      article = Article.create(hash)
+      article.parse_article
     end
   end
 
@@ -43,10 +48,13 @@ namespace :db do
       hash[:api] = Api.find_by(name: "Reddit")
       hash[:topic] = Topic.find_by(name: "sports")
       hash[:headline] = a["title"]
+      hash[:source] = a["domain"]
+      hash[:img_url] = a["thumbnail"]
       hash[:url] = a["url"]
       hash[:lead] = a["selftext"]
       hash[:date] = Time.at(a["created_utc"].to_i)
-      Article.create(hash)
+      article = Article.create(hash)
+      article.parse_article
     end
   end
 
@@ -54,7 +62,7 @@ namespace :db do
   task :load_feedzilla_data do
     response = HTTParty.get('http://api.feedzilla.com/v1/categories/27/articles.json')
     arr = response["articles"]
-    
+
     arr.each do |a|
       hash = {}
       hash[:api] = Api.find_by(name: "Feedzilla")
@@ -65,7 +73,8 @@ namespace :db do
       hash[:source] = a["source"]
       hash[:url] = a["source_url"]
       hash[:img_url] = nil
-      Article.create(hash)
+      article = Article.create(hash)
+      article.parse_article
     end
   end
 
@@ -82,12 +91,15 @@ namespace :db do
       hash[:api_id]     = Api.find_by(name: "NYT").id
       hash[:topic_id]   = Topic.find_by(name: "sports").id
       hash[:url]        = article_data['url']
+      hash[:source]     = "New York Times"
+      hash[:img_url]    = article_data['thumbnail']
       hash[:headline]   = article_data['title']
       hash[:lead]       = article_data['abstract']
       hash[:date]       = Date.strptime(article_data['published_date'], "%Y-%m-%d")
       hash[:source_id]  = article_data['id']
 
-      Article.create(hash)
+      article = Article.create(hash)
+      article.parse_article
     end
   end
 
@@ -99,8 +111,12 @@ namespace :db do
     Api.create({name: "USA Today"})
     Api.create({name: "Guardian"})
     Api.create({name: "Reddit"})
+    Api.create({name: "Feedzilla"})
 
     # ***** TOPICS *****
     Topic.create({name: "sports"})
   end
 end
+
+desc 'do errrythang'
+task :all => ['db:create', 'db:migrate', 'db:seed_api_and_topic_data', 'db:load_nyt_data', 'db:load_feedzilla_data', 'db:load_reddit_data', 'db:load_usa_today_data']
