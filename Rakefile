@@ -43,7 +43,8 @@ namespace :db do
       hash[:api] = Api.find_by(name: "Reddit")
       hash[:topic] = Topic.find_by(name: "sports")
       hash[:headline] = a["title"]
-      hash[:url] = a["domain"]
+      hash[:url] = a["url"]
+      hash[:lead] = a["selftext"]
       hash[:date] = Time.at(a["created_utc"].to_i)
       Article.create(hash)
     end
