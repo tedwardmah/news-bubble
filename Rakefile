@@ -58,7 +58,7 @@ namespace :db do
   task :load_feedzilla_data do
     response = HTTParty.get('http://api.feedzilla.com/v1/categories/27/articles.json')
     arr = response["articles"]
-    
+
     arr.each do |a|
       hash = {}
       hash[:api] = Api.find_by(name: "Feedzilla")
@@ -69,7 +69,8 @@ namespace :db do
       hash[:source] = a["source"]
       hash[:url] = a["source_url"]
       hash[:img_url] = nil
-      Article.create(hash)
+      article = Article.create(hash)
+      article.parse_article
     end
   end
 
