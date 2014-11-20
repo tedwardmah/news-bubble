@@ -35,7 +35,7 @@ namespace :db do
   desc "load reddit data"
   task :load_reddit_data do
     response = HTTParty.get('http://www.reddit.com/user/caindaddy/m/prosports/.json')
-    arr = response["data"]["children"]
+    arr = response['data']['children'][0...20].map { |e| e["data"] }
 
     arr.each do |a|
       hash = {}
@@ -43,8 +43,8 @@ namespace :db do
       hash[:topic] = Topic.find_by(name: "sports")
       hash[:headline] = a["title"]
       hash[:url] = a["domain"]
-      hash[:date] = Date.New(a["created_utc"].to_i)
-
+      hash[:date] = Time.at(a["created_utc"].to_i)
+      Article.create(hash)
     end
   end
 
