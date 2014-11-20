@@ -32,6 +32,7 @@ gem 'spring',        group: :development
 gem 'httparty'
 gem 'bourbon'
 gem 'neat'
+gem 'json'
 
 # Use unicorn as the app server
 # gem 'unicorn'
