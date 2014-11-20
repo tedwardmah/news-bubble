@@ -22,10 +22,11 @@ namespace :db do
   task :load_usa_today_data do
     response = HTTParty.get('http://api.usatoday.com/open/articles/topnews/sports?api_key=mnsmzv8pam9p2p2sswj4efs8')
     arr = response["rss"]["channel"]["item"]
+    @api = Api.find_by(name: "USA Today")
 
     arr.each do |a|
       hash = {}
-      hash[:api] = Api.find_by(name: "USA Today")
+      hash[:api] = @api
       hash[:topic] = Topic.find_by(name: "sports")
       hash[:source] = "USA Today"
       hash[:headline] = a['title']
