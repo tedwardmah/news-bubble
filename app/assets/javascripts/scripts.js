@@ -9,9 +9,7 @@ $( document ).ready(function(){
 	$(".lead").hide();
 
 	$(".articles").on("click", function() {
-		$(".lead").slideDown();
-	
-
+		$(this).next().slideToggle();
 	});
 
 
