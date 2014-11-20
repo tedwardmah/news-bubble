@@ -28,6 +28,7 @@ namespace :db do
       hash[:headline] = a['title']
       hash[:url] = a['link']
       hash[:date] = a['pubDate']
+      hash[:lead] = a["description"]
       Article.create(hash)
     end
   end
