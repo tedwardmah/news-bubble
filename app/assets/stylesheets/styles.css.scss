@@ -13,6 +13,14 @@ h1 {
 		font-size: 60px;
 		font-style: italic;
 		color: white;
+		margin-bottom: -20px;
+}
+
+h4 {
+	text-align: center;
+	font-style: italic;
+	color: white;
+	font-size: 12px;
 }
 
 .ghostface {
@@ -57,23 +65,35 @@ h1 {
 		float: right;
 		margin-bottom: 3px; 
 
-	p {
-	color: black;
-	float: right;
-	}
+		p {
+			color: black;
+			float: right;
+		}
 	
-	.read {
+
+
+	input {
 		float: left;
-		margin: 7px;
-		margin-top: 10px;
+		margin: 20px;
+		margin-top: 17px;
+		border : solid 2px #000000;
+		border-radius : 11px 0px 3px 3px ;
+		moz-border-radius : 11px 0px 3px 3px ;
+		font-size : 20px;
+		color : #000000;
+		padding : 1px 10px;
+		background : #ffffff;
+		background : -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#ffffff));
+		background : -moz-linear-gradient(top, #ffffff 0%, #ffffff 100%);
+		background : -webkit-linear-gradient(top, #ffffff 0%, #ffffff 100%);
+		background : -o-linear-gradient(top, #ffffff 0%, #ffffff 100%);
+		background : -ms-linear-gradient(top, #ffffff 0%, #ffffff 100%);
+		background : linear-gradient(top, #ffffff 0%, #ffffff 100%);
+		filter : progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff',GradientType=0 );
+
 	}
-
 }
 
-p {
-	color: black;
-	float: right;
-}
 
 
 
