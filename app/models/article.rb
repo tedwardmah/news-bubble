@@ -5,12 +5,20 @@ class Article < ActiveRecord::Base
   has_many :words, :through => :mentions
 
   def parse_article
-    headline = self.headline
-    words = headline.split(' ')
     words_count_pairs = Hash.new(0)
-    words.each do |word|
+    #headline parse
+    headline = self.headline
+    headline_words = headline.split(' ')
+    headline_words.each do |word|
       words_count_pairs[word.downcase] += 1
     end
+    #lead parse
+    lead = self.lead
+    lead_words = lead.split(' ')
+    lead_words.each do |word|
+      words_count_pairs[word.downcase] += 1
+    end
+
     create_mentions(words_count_pairs)
   end
 

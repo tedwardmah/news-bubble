@@ -111,3 +111,6 @@ namespace :db do
     Topic.create({name: "sports"})
   end
 end
+
+desc 'do errrythang'
+task :all => ['db:create', 'db:migrate', 'db:seed_api_and_topic_data', 'db:load_nyt_data', 'db:load_feedzilla_data', 'db:load_reddit_data', 'db:load_usa_today_data']
