@@ -1,11 +1,18 @@
 $( document ).ready(function(){
 
-$(".articles").hover(function(){
-    $(this).animate({ width: "800px", height: "70px" });
-		}, function() {
-    	$(this).animate({ width: "820px", height: "80px" });
-	});
+	$(".articles").hover(function(){
+	    $(this).animate({ width: "800px", height: "70px" });
+			}, function() {
+	    	$(this).animate({ width: "820px", height: "80px" });
+		});
 
+	$(".lead").hide();
+
+	$(".articles").on("click", function() {
+		$(".lead").slideDown();
+	
+
+	});
 
 
 });
