@@ -16,15 +16,22 @@ class ArticlesAPIController < ApplicationController
 
   def reddit
     response = HTTParty.get('http://www.reddit.com/user/caindaddy/m/prosports/.json')
-  api_response = response["data"]
-  arr = response
+    arr = response['data']['children'][0...20].map { |e| e["data"] }
+
     arr.each do |a|
       hash = {}
       hash[:api] = Api.find_by(name: "Reddit")
       hash[:topic] = Topic.find_by(name: "sports")
       hash[:headline] = a["title"]
       hash[:url] = a["url"]
+      hash[:lead] = a["selftext"]
+      hash[:date] = Time.at(a["created_utc"].to_i)
+      Article.create(hash)
     end
+  end
+
+  def fetch_feedzilla
+    response = 
   end
 
   def fetch_nyt_articles(section = 'sports') #this defaults to sports for the moment but should eventually be dynamic
