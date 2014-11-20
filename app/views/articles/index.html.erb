@@ -5,10 +5,19 @@
 			<div class="articles">
 				<li>
 					<div class="headline">
-						<a href="<%= article.url %>"><%= article.headline.upcase %></a>	
+						<%= article.headline.upcase %>
 					</div>
+					
 				</li>
 			</div>
+			<div class="lead">
+						<p>
+							<%= article.lead %>..
+							<form class="read" action="<%= article.url %>" >
+								<input type="submit" value="READ" >
+							</form>
+						</p>
+					</div>
 		<% end %>
 	</ul>
 </div>
