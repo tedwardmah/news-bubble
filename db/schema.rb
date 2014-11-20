@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141119202851) do
+ActiveRecord::Schema.define(version: 20141120152401) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,6 +38,17 @@ ActiveRecord::Schema.define(version: 20141119202851) do
   add_index "articles", ["api_id"], name: "index_articles_on_api_id", using: :btree
   add_index "articles", ["topic_id"], name: "index_articles_on_topic_id", using: :btree
 
+  create_table "mentions", force: true do |t|
+    t.integer  "word_id"
+    t.integer  "article_id"
+    t.integer  "word_count"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "mentions", ["article_id"], name: "index_mentions_on_article_id", using: :btree
+  add_index "mentions", ["word_id"], name: "index_mentions_on_word_id", using: :btree
+
   create_table "topics", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
@@ -48,6 +59,12 @@ ActiveRecord::Schema.define(version: 20141119202851) do
     t.string   "username"
     t.string   "password_digest"
     t.string   "email"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "words", force: true do |t|
+    t.string   "keyword"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
