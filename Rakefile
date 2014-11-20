@@ -47,7 +47,7 @@ namespace :db do
       hash[:topic] = Topic.find_by(name: "sports")
       hash[:headline] = a["title"]
       hash[:url] = a["url"]
-      hash[:lead] = a["selftext"]
+      hash[:lead] = a["selftext"] != "" ? a['selftext'] : "No description available...click link to read more!"
       hash[:date] = Time.at(a["created_utc"].to_i)
       article = Article.create(hash)
       article.parse_article
@@ -105,6 +105,7 @@ namespace :db do
     Api.create({name: "USA Today"})
     Api.create({name: "Guardian"})
     Api.create({name: "Reddit"})
+    Api.create({name: "Feedzilla"})
 
     # ***** TOPICS *****
     Topic.create({name: "sports"})
