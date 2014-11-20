@@ -1,13 +1,14 @@
-<h1>SpŸorts</h1>
-<ul>
-	<% @articles.each do |article| %>
-
-		<div class="bubble">
-			<li>
-			
-				<a href="<%= article.url %>"><%= article.headline %></a>
-			
-			</li>
-		</div>
-	<% end %>
-</ul>
+<h1>SPŸORTS</h1>
+<div class="ghostface">
+	<ul>
+		<% @articles.each do |article| %>
+			<div class="bubble">
+				<li>
+					<div class="headline">
+						<a href="<%= article.url %>"><%= article.headline.upcase %></a>	
+					</div>
+				</li>
+			</div>
+		<% end %>
+	</ul>
+</div>

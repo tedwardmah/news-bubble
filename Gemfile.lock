@@ -61,6 +61,9 @@ GEM
     minitest (5.4.3)
     multi_json (1.10.1)
     multi_xml (0.5.5)
+    neat (1.5.1)
+      bourbon (>= 3.1)
+      sass (~> 3.2.19)
     pg (0.17.1)
     pry (0.10.1)
       coderay (~> 1.1.0)
@@ -127,6 +130,7 @@ DEPENDENCIES
   httparty
   jbuilder (~> 2.0)
   jquery-rails
+  neat
   pg
   pry
   rails (= 4.1.7)
