@@ -5,6 +5,8 @@ require File.expand_path('../config/application', __FILE__)
 require './app/models/api'
 require './app/models/topic'
 require './app/models/article'
+require './app/models/word'
+require './app/models/mention'
 
 ActiveRecord::Base.establish_connection({
   adapter: 'postgresql',
@@ -29,7 +31,8 @@ namespace :db do
       hash[:url] = a['link']
       hash[:date] = a['pubDate']
       hash[:lead] = a["description"]
-      Article.create(hash)
+      article = Article.create(hash)
+      article.parse_article
     end
   end
 
@@ -46,7 +49,8 @@ namespace :db do
       hash[:url] = a["url"]
       hash[:lead] = a["selftext"]
       hash[:date] = Time.at(a["created_utc"].to_i)
-      Article.create(hash)
+      article = Article.create(hash)
+      article.parse_article
     end
   end
 
@@ -68,7 +72,8 @@ namespace :db do
       hash[:date]       = Date.strptime(article_data['published_date'], "%Y-%m-%d")
       hash[:source_id]  = article_data['id']
 
-      Article.create(hash)
+      article = Article.create(hash)
+      article.parse_article
     end
   end
 
