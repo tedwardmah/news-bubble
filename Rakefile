@@ -27,10 +27,12 @@ namespace :db do
       hash = {}
       hash[:api] = Api.find_by(name: "USA Today")
       hash[:topic] = Topic.find_by(name: "sports")
+      hash[:source] = "USA Today"
       hash[:headline] = a['title']
       hash[:url] = a['link']
-      hash[:date] = a['pubDate']
+      hash[:date] = Date.parse(a['pubDate'])
       hash[:lead] = a["description"]
+      hash[:img_url] = nil
       article = Article.create(hash)
       article.parse_article
     end
@@ -46,6 +48,8 @@ namespace :db do
       hash[:api] = Api.find_by(name: "Reddit")
       hash[:topic] = Topic.find_by(name: "sports")
       hash[:headline] = a["title"]
+      hash[:source] = a["domain"]
+      hash[:img_url] = a["thumbnail"]
       hash[:url] = a["url"]
       hash[:lead] = a["selftext"] != "" ? a['selftext'] : "No description available...click link to read more!"
       hash[:date] = Time.at(a["created_utc"].to_i)
@@ -87,6 +91,8 @@ namespace :db do
       hash[:api_id]     = Api.find_by(name: "NYT").id
       hash[:topic_id]   = Topic.find_by(name: "sports").id
       hash[:url]        = article_data['url']
+      hash[:source]     = "New York Times"
+      hash[:img_url]    = article_data['thumbnail']
       hash[:headline]   = article_data['title']
       hash[:lead]       = article_data['abstract']
       hash[:date]       = Date.strptime(article_data['published_date'], "%Y-%m-%d")
