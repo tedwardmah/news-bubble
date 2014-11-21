@@ -11,6 +11,7 @@ class WordsController < ApplicationController
       format.html
       format.json { render :json => { words: @words }}
   end
+end
 
 
   def show
