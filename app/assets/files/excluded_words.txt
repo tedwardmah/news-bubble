@@ -1,3 +1,7 @@
+http
+com
+www
+about
 due
 rounds)
 only
