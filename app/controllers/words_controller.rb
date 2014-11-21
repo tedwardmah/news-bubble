@@ -2,7 +2,7 @@ class WordsController < ApplicationController
 
   def index
 
-    @words = Word.ort_by_total_count(40)
+    @words = Word.sort_by_total_count(40)
     # file = File.read('app/assets/javascripts/flare.json')
     # file = File.read('app/assets/resources/flare.json')
     # thing = JSON.parse(file)

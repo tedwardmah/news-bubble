@@ -36,6 +36,8 @@ gem 'json'
 
 gem 'd3js-rails', '~> 3.1.6'
 
+gem 'rails_12factor'
+
 # Use unicorn as the app server
 # gem 'unicorn'
 
