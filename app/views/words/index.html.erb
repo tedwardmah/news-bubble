@@ -1,6 +1,7 @@
+
   <ol>
     <% @words.each do |word| %>
-      <li class="circles"><h2><%=link_to(word.keyword, word_path(word)) %></h2></li></a>
+      <li class="circles"><h2><%=link_to(word.keyword.upcase, word_path(word)) %></h2></li></a>
     <% end %>
   </ol>
 
