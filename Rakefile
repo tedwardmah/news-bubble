@@ -23,11 +23,12 @@ namespace :db do
     response = HTTParty.get('http://api.usatoday.com/open/articles/topnews/sports?api_key=mnsmzv8pam9p2p2sswj4efs8')
     arr = response["rss"]["channel"]["item"]
     @api = Api.find_by(name: "USA Today")
+    @topic = Topic.find_by(name: "sports")
 
     arr.each do |a|
       hash = {}
       hash[:api] = @api
-      hash[:topic] = Topic.find_by(name: "sports")
+      hash[:topic] = @topic
       hash[:source] = "USA Today"
       hash[:headline] = a['title']
       hash[:url] = a['link']
@@ -43,11 +44,13 @@ namespace :db do
   task :load_reddit_data do
     response = HTTParty.get('http://www.reddit.com/user/caindaddy/m/prosports/.json')
     arr = response['data']['children'][0...20].map { |e| e["data"] }
+    @api = Api.find_by(name: "Reddit")
+    @topic = Topic.find_by(name: "sports")
 
     arr.each do |a|
       hash = {}
-      hash[:api] = Api.find_by(name: "Reddit")
-      hash[:topic] = Topic.find_by(name: "sports")
+      hash[:api] = @api
+      hash[:topic] = @topic
       hash[:headline] = a["title"]
       hash[:source] = a["domain"]
       hash[:img_url] = a["thumbnail"]
@@ -63,11 +66,13 @@ namespace :db do
   task :load_feedzilla_data do
     response = HTTParty.get('http://api.feedzilla.com/v1/categories/27/articles.json')
     arr = response["articles"]
+    @api = Api.find_by(name: "Feedzilla")
+    @topic = Topic.find_by(name: "sports")
 
     arr.each do |a|
       hash = {}
-      hash[:api] = Api.find_by(name: "Feedzilla")
-      hash[:topic] = Topic.find_by(name: "sports")
+      hash[:api] = @api
+      hash[:topic] = @topic
       hash[:headline] = a["title"]
       hash[:lead] = a["summary"]
       hash[:date] = Date.parse(a["publish_date"])
@@ -86,11 +91,13 @@ namespace :db do
     nyt_url = "http://api.nytimes.com/svc/mostpopular/v2/mostviewed/#{section}/1.json?api-key=#{nyt_api_key}"
     api_response = HTTParty.get(nyt_url)
     articles = api_response['results']
+    @api = Api.find_by(name: "NYT").id
+    @topic = Topic.find_by(name: "sports").id
 
     articles.each do |article_data|
       hash = {}
-      hash[:api_id]     = Api.find_by(name: "NYT").id
-      hash[:topic_id]   = Topic.find_by(name: "sports").id
+      hash[:api_id]     = @api
+      hash[:topic_id]   = @topic
       hash[:url]        = article_data['url']
       hash[:source]     = "New York Times"
       hash[:img_url]    = article_data['thumbnail']
@@ -120,4 +127,4 @@ namespace :db do
 end
 
 desc 'do errrythang'
-task :all => ['db:create', 'db:migrate', 'db:seed_api_and_topic_data', 'db:load_nyt_data', 'db:load_feedzilla_data', 'db:load_reddit_data', 'db:load_usa_today_data']
+task :all => ['db:create', 'db:migrate', 'db:seed_api_and_topic_data', 'db:load_nyt_data', 'db:load_reddit_data', 'db:load_usa_today_data']
