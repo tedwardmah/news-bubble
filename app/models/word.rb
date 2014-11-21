@@ -5,9 +5,9 @@ class Word < ActiveRecord::Base
   def self.sort_by_total_count(num_results)
     words = self.all
     sorted_words = words.sort_by do |word|
-      word.total_count
+      word.total_count != arr
     end
-    sorted_words.reverse[0..(num_results-1)]
+    sorted_words.reverse[0..(num_results-1)] 
   end
 
   def total_count
