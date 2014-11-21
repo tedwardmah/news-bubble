@@ -2,13 +2,13 @@
 <meta charset="utf-8">
 <body>
 <script src="http://d3js.org/d3.v3.min.js"></script>
-<div class = "circles">  
+
   <ol>
     <% @words.each do |word| %>
-      <li><%=link_to(word.keyword, word_path(word)) %></li></a>
+      <li class="circles"><h2><%=link_to(word.keyword, word_path(word)) %></h2></li></a>
     <% end %>
   </ol>
-</div> 
+
 
 <script>
 
