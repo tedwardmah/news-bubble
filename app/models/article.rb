@@ -7,13 +7,17 @@ class Article < ActiveRecord::Base
   def parse_article
     words_count_pairs = Hash.new(0)
     #headline parse
-    headline = self.headline.gsub('.', '').gsub(',', '').gsub('&#8217;', '').gsub('\n', '').gsub(/\[.+\]/, '').gsub('?', '').gsub('!', '').gsub(':', '')
+    headline = self.headline.gsub(/'s/, '')
+    headline.gsub!(/\\n|/, ' ')
+    headline.gsub!(/\[.+\]|&#8217;|[.,:;'?!]|\d+-\d+|\d+ - \d+|\(.+\)/, '')
     headline_words = headline.split(' ')
     headline_words.each do |word|
       words_count_pairs[word.downcase] += 1
     end
     #lead parse
-    lead = self.lead.gsub('.', '').gsub(',', '').gsub('&#8217;', '').gsub('\n', '').gsub(/\[.+\]/, '').gsub('?', '').gsub('!', '').gsub(':', '')
+    lead = self.lead.gsub(/'s/, '')
+    lead.gsub!(/\\n|/, ' ')
+    lead.gsub!(/\[.+\]|&#8217;|[.,:;'?!]|\d+-\d+|\d+ - \d+|\(.+\)/, '')
     lead_words = lead.split(' ')
     lead_words.each do |word|
       words_count_pairs[word.downcase] += 1
