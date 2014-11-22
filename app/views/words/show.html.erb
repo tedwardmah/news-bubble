@@ -1,6 +1,6 @@
 <div class="ghostface">
-	<ul>
-		<% @articles.each do |article| %>
+	<ul class="supreme-clientele">
+<!-- 		<% @articles.each do |article| %>
 			<div class="articles">
 				<li>
 					<div class="headline">
@@ -16,7 +16,20 @@
 								<input type="submit" value="READ">
 							</form>
 						</p>
-					</div>
-		<% end %>
+			</div>
+		<% end %> -->
 	</ul>
 </div>
+
+<script>
+	var articleList = new ArticleList({model: Article});
+	$(document).ready(function(){
+		console.log("Bubblezzz")
+		var listView = new ArticleListView({
+			collection: articleList,
+			$el: $('.supreme-clientele'),
+			modelView: ArticleView,
+		});
+		// todoList.fetch();
+	});
+</script>
