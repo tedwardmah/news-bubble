@@ -9,3 +9,7 @@ ArticleList.prototype.add = function add(model){
   $(this).trigger('change');
   return this;
 }
+
+ArticleList.prototype.fetch = function fetch(){
+  
+}

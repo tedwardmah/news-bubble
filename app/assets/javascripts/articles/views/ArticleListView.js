@@ -8,12 +8,10 @@ var ArticleListView = function ArticleListView(options){
 
 ArticleListView.prototype.render = function render(){
   this.$el.empty();
-  debugger
   var models = this.collection.models;
   for (var i = 0; i < models.length; i++){
     var model = models[i];
     var view = new this.modelView({model: model });
-    debugger
     this.$el.append(view.render().$el);
   }
   return this;
