@@ -1,4 +1,4 @@
-<div class="ghostface">
+<div class="ghostface" data-word-id='<%= @word.id%>'>
 	<ul class="supreme-clientele">
 <!-- 		<% @articles.each do |article| %>
 			<div class="articles">
@@ -30,6 +30,6 @@
 			$el: $('.supreme-clientele'),
 			modelView: ArticleView,
 		});
-		// articleList.fetch();
+		articleList.fetch();
 	});
 </script>
