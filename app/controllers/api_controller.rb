@@ -1,4 +1,4 @@
-class ArticlesAPIController < ApplicationController
+class APIController < ApplicationController
 
   def usa_today
     response = HTTParty.get('http://api.usatoday.com/open/articles/topnews/sports?api_key=mnsmzv8pam9p2p2sswj4efs8')
@@ -13,6 +13,8 @@ class ArticlesAPIController < ApplicationController
       Article.create!(hash)
     end
   end
+
+  
 
   def reddit
     response = HTTParty.get('http://www.reddit.com/user/caindaddy/m/prosports/.json')
