@@ -1,4 +1,14 @@
+function slideLeft(){
+	$('.articles').animate({width:'slideToggle'}, 350);
+}
+
+function hideLead() {
+	$('.lead').hide();	
+}
 $( document ).ready(function(){
+
+	slideLeft();
+	hideLead()
 
 	$(".articles").hover(function(){
 	    $(this).animate({ width: "800px", height: "70px" });
