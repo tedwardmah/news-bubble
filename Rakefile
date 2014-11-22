@@ -26,6 +26,10 @@ namespace :db do
     @topic = Topic.find_by(name: "sports")
 
     arr.each do |a|
+      
+      # cleaned_description = a["description"]
+
+
       hash = {}
       hash[:api] = @api
       hash[:topic] = @topic
@@ -33,7 +37,7 @@ namespace :db do
       hash[:headline] = a['title']
       hash[:url] = a['link']
       hash[:date] = Date.parse(a['pubDate'])
-      hash[:lead] = a["description"]
+      hash[:lead] = cleaned_description
       hash[:img_url] = nil
       article = Article.create(hash)
       article.parse_article
