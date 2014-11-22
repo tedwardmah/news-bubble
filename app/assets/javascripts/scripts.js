@@ -10,6 +10,7 @@ $( document ).ready(function(){
 
 	$(".articles").on("click", function() {
 		$(this).next().slideToggle();
+		$(this)slide("left");
 	});
 
 	$(".circles").hover(function(){
