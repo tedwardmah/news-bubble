@@ -6,22 +6,19 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   <script id="article-template" type="text/template">
-      <div class="articles">
-        <li>
-          <div class="headline">
-            <%%= article.headline %>
-          </div>
-          
-        </li>
+    <li class="article">
+      <div class="headline">
+        <p>
+          <%%= article.headline %>
+        </p>
       </div>
       <div class="lead">
-            <p>
-              <%%= article.lead %>..
-                <form  class="read" method="get" action="<%%= article.url %>" target"_blank" >
-                <input type="submit" value="READ">
-              </form>
-            </p>
+        <p>
+          <%%= article.lead %>..
+        </p>
+        <a href="<%%= article.url %>" class="read" target="_blank">READ</a>
       </div>
+    </li>
   </script>
 </head>
 <body>

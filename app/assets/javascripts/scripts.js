@@ -7,10 +7,7 @@ function hideLead() {
 }
 $( document ).ready(function(){
 
-	slideLeft();
-	hideLead()
-
-	$(".articles").hover(function(){
+	$(".article").hover(function(){
 	    $(this).animate({ width: "800px", height: "70px" });
 			}, function() {
 	    	$(this).animate({ width: "820px", height: "80px" });

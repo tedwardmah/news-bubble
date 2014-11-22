@@ -8,34 +8,43 @@
 					</div>
 					
 				</li>
+		<li class="article">
+			<div class="headline">
+				<p>
+					<%= article.headline %>
+				</p>
 			</div>
 			<div class="lead">
-						<p>
-							<%= article.lead %>..
-								<form  class="read" method="get" action="<%= article.url %>" target"_blank" >
-								<input type="submit" value="READ">
-							</form>
-						</p>
+				<p>
+					<%= article.lead %>..
+				</p>
+				<form class="read" method="get" action="<%= article.url %>" target"_blank" >
+					<input type="submit" value="READ">
+				</form>
 			</div>
+		</li>
 		<% end %> -->
 	</ul>
 </div>
 
 <script>
-	var articleList = new ArticleList({model: Article});
-	$(document).ready(function(){
-		console.log("Bubblezzz")
-		var listView = new ArticleListView({
-			collection: articleList,
-			$el: $('.supreme-clientele'),
-			modelView: ArticleView,
-		});
-		articleList.fetch();
+var articleList = new ArticleList({model: Article});
+
+$(document).ready(function(){
+	console.log("Bubblezzz");
+	var listView = new ArticleListView({
+		collection: articleList,
+		$el: $('.supreme-clientele'),
+		modelView: ArticleView,
 	});
+<<<<<<< HEAD
 
 	$(".supreme-clientele").on('click', function(){
 	    $(this).animate({ width: "800px", height: "70px" });
 			}, function() {
 	    	$(this).animate({ width: "820px", height: "80px" });
 		});
+=======
+	articleList.fetch();
+});
 </script>
