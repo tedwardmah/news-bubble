@@ -120,11 +120,7 @@ body {
 }
 
 
-path {
-  fill: #f88e22;
-  stroke: #fff;
-  stroke-width: 2px;
-}
+
 
 
 
@@ -139,7 +135,8 @@ path {
 			}*/
 
 .circles {
-    background: #f00;
+    background: black;
+    border: 2px solide white;
     width: 200px;
     height: 200px;
     border-radius: 50%;
@@ -152,6 +149,7 @@ h2 {
    height: 200px;
    position: relative;
    top: 40%;
+   font: calibri;
 	
 }
 
