@@ -12,7 +12,8 @@ ArticleListView.prototype.render = function render(){
   var models = this.collection.models;
   for (var i = 0; i < models.length; i++){
     var model = models[i];
-    var view = new this.modelView({model: article });
+    var view = new this.modelView({model: model });
+    debugger
     this.$el.append(view.render().$el);
   }
   return this;
