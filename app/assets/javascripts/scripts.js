@@ -23,7 +23,26 @@ $( document ).ready(function(){
 	$(".start-btn").on("click", function() {
 		$(".circles").next().slideToggle();
 		$(".start").hide();
+		return false;
 	});
+
+	var el = $(".circles")
+	el.on("click", function(event){
+		event.preventDefault();
+		$.ajax('/words/:id' {
+			type: 'GET',
+			data: word_id,
+			dataType: 'json',
+			success: function() {
+				$('.articles').html
+
+
+			}
+
+		});
+	});
+
+
 
 });
 

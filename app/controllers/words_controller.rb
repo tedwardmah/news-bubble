@@ -10,6 +10,7 @@ class WordsController < ApplicationController
   #   respond_to do |format|
   #     format.html
   #     format.json { render :json => { words: @words }}
+  
   	end
 
   def show
