@@ -10,12 +10,17 @@ class WordsController < ApplicationController
   #   respond_to do |format|
   #     format.html
   #     format.json { render :json => { words: @words }}
+
   	end
 
   def show
-  	word = Word.find(params[:id])
-  	@articles = word.articles
-
+  	@word = Word.find(params[:id])
+  	@articles = @word.articles
+    
+    respond_to do |format|
+      format.html
+      format.json { render :json => { articles: @articles }}
+   end
   end
 
 end
