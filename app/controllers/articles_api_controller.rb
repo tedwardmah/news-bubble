@@ -30,10 +30,6 @@ class ArticlesAPIController < ApplicationController
     end
   end
 
-  def fetch_feedzilla
-    response = 
-  end
-
   def fetch_nyt_articles(section = 'sports') #this defaults to sports for the moment but should eventually be dynamic
     nyt_api_key = '53d66b4923e199e21d3304cfc06527ea:3:57497200'
     nyt_url = "http://api.nytimes.com/svc/mostpopular/v2/mostviewed/#{section}/1.json?api-key=#{nyt_api_key}"
