@@ -4,7 +4,7 @@ var ArticleView = function ArticleView(options){
 }
 
 ArticleView.prototype.render = function render(){
-  var templateText = $('article-template').html();
+  var templateText = $('#article-template').html();
   var compiled     = _.template(templateText);
   this.$el = $(compiled({ article: this.model }));
   return this;
