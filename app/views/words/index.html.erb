@@ -1,26 +1,50 @@
-<form class="start">
-<input class="start-btn" type="submit" value="START">
-</form>
-  <ol>
-    <% @words.each do |word| %>
-      <li class="circles"><h2><%=link_to(word.keyword.upcase, word_path(word)) %></h2><%= word.total_count %></li></a>
-    <% end %>
-  </ol>
+<!-- <form class="start">
+  <input class="start-btn" type="submit" value="START">
+</form> -->
 
-  <script>
-  
-$(document).ready(function(){ 
-  
-  function getRandomColor() {
-    var color = $('.circles');
-    for (var i = 0; i < 6; i++ ) {
-        color += letters[Math.floor(Math.random() * 16)];
-    }
-    return color;
-}
-  
-    
-    }); 
+<!-- <ol>
+  <% @words.each do |word| %>
+  <li class="circles"><h2><%=link_to(word.keyword.upcase, word_path(word)) %></h2><%= word.total_count %></li></a>
+  <% end %>
+</ol> -->
 
-  </script>
+<div class="bubble-container">
+  <div class="blocker-left"></div>
+  <div class="blocker-left-small"></div>
+  <div class="blocker-right"></div>
+  <% @words.each do |word| %>
+  <div class="bubble"><div class='bubble-text'><%= word.keyword %></div></div>
+  <% end %>
+</div>
+
+
+<script>
+
+// function getRandomColor() {
+//   var color = $('.circles');
+//   for (var i = 0; i < 6; i++ ) {
+//     color += letters[Math.floor(Math.random() * 16)];
+//   }
+//   return color;
+// }
+
+
+
+$(function(){
+  console.log(":)");
+  var $bubbles = $('.bubble');
+  
+  function makeCircles() {
+    $bubbles.each(function(index, bubble) {
+      var $bubble = $(bubble);
+      var width = bubble.offsetWidth;
+      $bubble.height(width);
+      $bubble.css('border-radius', width);
+      $bubble.css('vertical-align', 'middle');
+    });
+  }
+  makeCircles();
+})
+
+</script>
 
