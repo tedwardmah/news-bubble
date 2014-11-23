@@ -17,34 +17,9 @@
   <% end %>
 </div>
 
-
-<script>
-
-// function getRandomColor() {
-//   var color = $('.circles');
-//   for (var i = 0; i < 6; i++ ) {
-//     color += letters[Math.floor(Math.random() * 16)];
-//   }
-//   return color;
-// }
+<div class="testicle">
 
 
+</div>
 
-$(function(){
-  console.log(":)");
-  var $bubbles = $('.bubble');
-  
-  function makeCircles() {
-    $bubbles.each(function(index, bubble) {
-      var $bubble = $(bubble);
-      var width = bubble.offsetWidth;
-      $bubble.height(width);
-      $bubble.css('border-radius', width);
-      $bubble.css('vertical-align', 'middle');
-    });
-  }
-  makeCircles();
-})
-
-</script>
 
