@@ -1,8 +1,7 @@
 class WordsController < ApplicationController
 
   def index
-    @words = Word.sort_by_total_count(40)
-
+    @words = Word.sort_by_total_count(20)
   end
 
   def show
