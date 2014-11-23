@@ -15,10 +15,10 @@ $( document ).ready(function(){
 
 	$(".lead").hide();
 
-	$(".articles").on("click", function() {
-		$(this).next().slideToggle();
-		$(this)slide("left");
-	});
+	// $(".articles").on("click", function() {
+	// 	$(this).next().slideToggle();
+	// 	$(this)slide("left");
+	// });
 
 	$(".circles").hover(function(){
 		$(this).animate({ width: "250px", height: "250px"})
@@ -33,22 +33,6 @@ $( document ).ready(function(){
 		$(".start").hide();
 		return false;
 	});
-
-	// var el = $(".circles")
-	// el.on("click", function(event){
-	// 	event.preventDefault();
-	// 	$.ajax('/words/:id' {
-	// 		type: 'GET',
-	// 		data: word_id,
-	// 		dataType: 'json',
-	// 		success: function() {
-	// 			$('.articles').html
-
-
-	// 		}
-
-	// 	});
-	// });
 
 
 
