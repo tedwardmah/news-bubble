@@ -1,7 +1,8 @@
 class WordsController < ApplicationController
 
   def index
-    @words = Word.sort_by_total_count(20)
+    session[:words] = Word.sort_by_total_count(20)
+    @words = session[:words]
   end
 
   def show
