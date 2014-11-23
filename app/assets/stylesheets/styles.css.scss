@@ -120,29 +120,49 @@ ul {
 
 
 .bubble-container {
+	text-align: center;
 	margin: 0 auto;
 	width: 500px;
 }
 
-.blocker-left{
+.blocker-left-1{
 	background-color: rgba(0, 0, 0, .3);
 	float: left;
-	width: 100px;
+	width: 50px;
+	height: 150px;
+}
+.blocker-left-2{
+	background-color: rgba(0, 0, 0, .3);
+	float: left;
+	width: 50px;
 	height: 100px;
 }
 
-.blocker-left-small{
-	background-color: rgba(0, 0, 0, .5);
-	float:left;
+.blocker-left-3{
+	background-color: rgba(0, 0, 0, .3);
+	float: left;
 	width: 50px;
 	height: 50px;
 }
 
-.blocker-right{
+.blocker-right-1{
 	background-color: rgba(0, 0, 0, .3);
 	float: right;
-	width: 100px;
+	width: 50px;
+	height: 150px;
+}
+.blocker-right-2{
+	background-color: rgba(0, 0, 0, .3);
+	float: right;
+	width: 50px;
 	height: 100px;
+}
+
+.blocker-right-3{
+	background-color: rgba(0, 0, 0, .3);
+	float: right;
+	width: 50px;
+	height: 50px;
 }
 
 .bubble {
