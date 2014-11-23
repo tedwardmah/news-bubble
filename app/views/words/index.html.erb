@@ -17,9 +17,29 @@
   <% end %>
 </div>
 
-<div class="testicle">
-
-
+<div class="ghostface">
+    <%= image_tag( 'hamburger.jpg') %>
+  <ul>
+    <% @articles.each do |article| %>
+      <div class="articles">
+        <li>
+          <div class="headline">
+            <%= article.headline.upcase %>
+          </div>
+          
+        </li>
+      </div>
+      <div class="lead">
+            <p>
+              <%= article.lead %>..
+                <form  class="read" method="get" action="<%= article.url %>" target"_blank" >
+                <input type="submit" value="READ" >
+              </form>
+            </p>
+          </div>
+    <% end %>
+  </ul>
 </div>
+
 
 

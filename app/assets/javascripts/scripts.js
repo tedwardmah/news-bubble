@@ -1,12 +1,16 @@
 $(document).ready(function(){
 
-	$(".testicle").hide();
+	$(".ghostface").hide();
 
   console.log(":)");
   var $bubbles = $('.bubble');
 
 	$bubbles.on("click", function() {
-		$('.testicle').toggle('slide', {direction: 'left'}, "slow");
+		$('.ghostface').slideDown();
+	});
+
+	$('img').on("click", function() {
+		$('.ghostface').slideToggle();
 	});
   
   function makeCircles() {
@@ -19,9 +23,6 @@ $(document).ready(function(){
     });
   }
   makeCircles();
-
-
-
 
 
 
