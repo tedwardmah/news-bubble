@@ -1,6 +1,31 @@
-$( document ).ready(function(){
+$(document).ready(function(){
+
+	$(".testicle").hide();
+
+  console.log(":)");
+  var $bubbles = $('.bubble');
+
+	$bubbles.on("click", function() {
+		$('.testicle').toggle('slide', {direction: 'left'}, "slow");
+	});
+  
+  function makeCircles() {
+    $bubbles.each(function(index, bubble) {
+      var $bubble = $(bubble);
+      var width = bubble.offsetWidth;
+      $bubble.height(width);
+      $bubble.css('border-radius', width);
+      $bubble.css('vertical-align', 'middle');
+    });
+  }
+  makeCircles();
 
 
+
+
+
+
+});
 
 	// $(".articles").on("click", function() {
 	// 	$(this).next().slideToggle();
@@ -35,6 +60,4 @@ $( document ).ready(function(){
 	// 	$(".start").hide();
 	// 	return false;
 	// });
-
-});
 
