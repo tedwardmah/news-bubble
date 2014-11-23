@@ -21,42 +21,26 @@
   <% end %>
 </div>
 
-
-<script>
-
-var $bubbles;
-
-function getMaxOfArray(numArray) {
-  return Math.max.apply(null, numArray);
-}
-
-function getMaxWordCount() {
-  var wordCounts = [];
-  $bubbles.each(function(index, bubble){
-    wordCounts.push($(bubble).data('word-count'));
-  })
-  return getMaxOfArray(wordCounts);
-}
-
-$(function(){
-  console.log(":)");
-  $bubbles = $('.bubble');
-  var maxWordCount = getMaxWordCount();
-  
-  function makeCircles() {
-    $bubbles.each(function(index, bubble) {
-      var $bubble = $(bubble);
-      var width = bubble.offsetWidth;
-      var wordCount = $bubble.data('word-count');
-      $bubble.css('font-size', ((wordCount/maxWordCount)*60));
-      $bubble.height(width);
-      $bubble.css('border-radius', width);
-      $bubble.css('vertical-align', 'middle');
-    });
-  }
-
-  makeCircles();
-})
-
-</script>
-
+<div class="ghostface">
+    <%= image_tag( 'hamburger.jpg') %>
+  <ul>
+    <% @articles.each do |article| %>
+      <div class="articles">
+        <li>
+          <div class="headline">
+            <%= article.headline.upcase %>
+          </div>
+          
+        </li>
+      </div>
+      <div class="lead">
+            <p>
+              <%= article.lead %>..
+                <form  class="read" method="get" action="<%= article.url %>" target"_blank" >
+                <input type="submit" value="READ" >
+              </form>
+            </p>
+          </div>
+    <% end %>
+  </ul>
+</div>
