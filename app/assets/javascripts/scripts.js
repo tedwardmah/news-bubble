@@ -38,11 +38,11 @@ $(document).ready(function(){
 
 
 	// ***** ARTICLES LIST *****
-	// $(".ghostface").hide();
+	$(".ghostface").hide();
 
 	$bubbles.on("click", function() {
 		$('.ghostface').slideDown();
-		$('.header').animate({right: "25%"});
+		// $('.header').animate({right: "25%"});
 	});
 
 
