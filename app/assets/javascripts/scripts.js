@@ -20,7 +20,7 @@ var maxWordCount;
 			var $bubble = $(bubble);
 			var width = bubble.offsetWidth;
 			var wordCount = $bubble.data('word-count');
-			$bubble.css('font-size', ((wordCount/maxWordCount)*60));
+			// $bubble.css('font-size', ((wordCount/maxWordCount)*60));
 			$bubble.height(width);
 			$bubble.css('border-radius', width);	
 			$bubble.css('vertical-align', 'middle');
@@ -47,6 +47,18 @@ $(document).ready(function(){
 	$('img').on("click", function() {
 		$('.ghostface').slideToggle();
 	});
+
+		$(".articles").on("click", function() {
+		$(this).next().slideToggle();
+	});
+
+		$(".article").hover(function(){
+	    $(this).animate({ width: "800px", height: "70px" });
+			}, function() {
+	    	$(this).animate({ width: "820px", height: "80px" });
+		});
+
+	$(".lead").hide();
 
 
 	// ***** CALL NECESSARY FUNCTIONS *****
