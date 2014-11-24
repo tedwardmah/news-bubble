@@ -1,5 +1,4 @@
 body {
-	margin: 0;
 	background: {
 		repeat: no-repeat;
 		attachment: fixed;
@@ -47,9 +46,11 @@ body {
 		border: 4px solid white;
 
 		p {
-			list-style: none;
+			padding: 0;
+			margin: 0;
 			position: relative;
-			text-decoration: none;
+			top: 50%;
+			transform: translateY(-50%);
 			color: white;
 			font-size: 24px;
 		}
