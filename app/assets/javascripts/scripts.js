@@ -39,7 +39,6 @@ $(document).ready(function(){
 
 	// ***** ARTICLES LIST *****
 	$(".ghostface").hide();
-	$(".lead").hide();
 
 	$bubbles.on("click", function() {
 		$('.ghostface').slideDown();
