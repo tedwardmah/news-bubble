@@ -42,6 +42,7 @@ $(document).ready(function(){
 
 	$bubbles.on("click", function() {
 		$('.ghostface').slideDown();
+		$('.bubble-container').animate({left:'100px'},"slow");
 	});
 
 	$('img').on("click", function() {
