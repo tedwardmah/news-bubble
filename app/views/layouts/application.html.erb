@@ -15,8 +15,10 @@
       <div class="lead">
         
         <p>
-        <a href="<%%= article.url %>" class="read" target="_blank">READ</a>
           <%%= article.lead %>..
+          <form action="<%%= article.url %>" method="get" target="_blank">
+            <input type="submit" value="READ" class="read" >
+          </form>
         </p>
       </div>
     </li>
