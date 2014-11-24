@@ -18,7 +18,7 @@ class APIController < ApplicationController
 
   def reddit
     response = HTTParty.get('http://www.reddit.com/user/caindaddy/m/prosports/.json')
-    arr = response['data']['children'][0...20].map { |e| e["data"] }
+    arr = response['data']['children'][0...20].map { |e| e["data" != ] }
 
     arr.each do |a|
       hash = {}
