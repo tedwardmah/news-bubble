@@ -1,13 +1,12 @@
 body {
-	margin: 0;
 	background: {
 		repeat: no-repeat;
 		attachment: fixed;
 		size: 100% 100%;
 		image: url(https://secure.static.tumblr.com/da0d9c3f9b64db1f1b7a85afe018df7a/4y11feu/Rnin5slcj/tumblr_static_tumblr_static_e0n2ytnm8vksscoos08484osk_1280.jpg);
 	}
-   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
-   font-weight: 300;
+	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+	font-weight: 300;
 }
 
 .ghostface {
@@ -44,9 +43,11 @@ body {
 		color: white;
 
 		p {
-			list-style: none;
+			padding: 0;
+			margin: 0;
 			position: relative;
-			text-decoration: none;
+			top: 50%;
+			transform: translateY(-50%);
 			color: white;
 			font-size: 24px;
 		}
