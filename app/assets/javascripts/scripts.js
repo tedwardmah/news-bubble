@@ -53,7 +53,7 @@ $(document).ready(function(){
 	});
 
 		$(".articles").hover(function(){
-	    $(this).animate({ width: "800px", height: "70px" });
+	    $(this).animate({ width: "800px", height: "80px" });
 			}, function() {
 	    	$(this).animate({ width: "820px", height: "80px" });
 		});

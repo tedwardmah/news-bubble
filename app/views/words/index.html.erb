@@ -17,33 +17,47 @@
   <div class="blocker-right-3"></div>
 
   <% @words.each do |word| %>
-  <div class="bubble" data-word-count="<%= word.total_count %>"><div class='bubble-text'><%= word.keyword %></div></div>
+  <div class="bubble" data-word-id="<%= word.id %>" data-word-count="<%= word.total_count %>"><div class='bubble-text'><%= word.keyword %></div></div>
   <% end %>
 </div>
 
 <div class="ghostface">
   <div>
     <%= image_tag( 'hamburger.jpg') %>
-    <h2>All Articles</h2>
+    <h2 id="keyword-articles">All Articles</h2>
   </div>
-  <ul>
-    <% @articles.each do |article| %>
-      <div class="articles">
-        <li>
-          <div class="headline">
-            <%= article.headline.upcase %>
-          </div>
-          
-        </li>
-      </div>
-      <div class="lead">
-            <p>
-              <%= article.lead %>..
-                <form  class="read" method="get" action="<%= article.url %>" target"_blank" >
-                <input type="submit" value="READ" >
-              </form>
-            </p>
-          </div>
-    <% end %>
+  <ul class="supreme-clientele">
+
   </ul>
 </div>
+
+
+<script>
+var articleList = new ArticleList({model: Article});
+
+var $articleListHeadline = $('#keyword-articles');
+
+function changeHeadline(newHeadline){
+  $articleListHeadline.text(newHeadline);
+};
+
+$(document).ready(function(){
+  console.log("Bubblezzz");
+
+  var listView = new ArticleListView({
+    collection: articleList,
+    $el: $('.supreme-clientele'),
+    modelView: ArticleView,
+  }); // end of listView creation
+
+  $(".bubble").on("click", function(){
+    var wordId   = $(this).data('word-id');
+    var wordText = this.firstElementChild.textContent;
+    changeHeadline(wordText);
+    articleList.fetch(wordId);
+  });
+});
+
+
+
+</script>
