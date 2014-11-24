@@ -18,9 +18,9 @@ var maxWordCount;
 	function makeCircles() {
 		$bubbles.each(function(index, bubble) {
 			var $bubble = $(bubble);
-			var width = bubble.offsetWidth;
 			var wordCount = $bubble.data('word-count');
-			// $bubble.css('font-size', ((wordCount/maxWordCount)*60));
+			$bubble.css('font-size', ((wordCount/maxWordCount)*60));
+			var width = bubble.offsetWidth;
 			$bubble.height(width);
 			$bubble.css('border-radius', width);	
 			$bubble.css('vertical-align', 'middle');
