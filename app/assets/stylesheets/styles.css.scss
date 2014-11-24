@@ -5,10 +5,11 @@ body {
 		size: 100% 100%;
 		image: url(https://secure.static.tumblr.com/da0d9c3f9b64db1f1b7a85afe018df7a/4y11feu/Rnin5slcj/tumblr_static_tumblr_static_e0n2ytnm8vksscoos08484osk_1280.jpg);
 	}
-	font-family: calibri;
+	font-family: "calibri", serif;
 }
 
 .ghostface {
+	background-color: red;
 	margin-right: 3px;
 	margin-left: 3px;
 	display: block;
@@ -25,9 +26,11 @@ ul {
 		height: 100px;
 		background-color: black;
 		display: inline-block;
-		text-align: right; 
+		text-align: right;
+		font-size: 25px;
 		margin-bottom: 3px; 
 		margin-right: 3px;
+		padding: 20px;
 		float: right;
 		color: white;
 
@@ -49,7 +52,6 @@ ul {
 		color: white;
 		width: 800px;
 		display: inline-block;
-		margin-left: 200px;
 		padding-bottom: 10px;
 		margin-top: 5px;
 		margin-bottom: 10px;
