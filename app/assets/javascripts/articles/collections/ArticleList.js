@@ -10,8 +10,8 @@ ArticleList.prototype.add = function add(model){
   return this;
 }
 
-ArticleList.prototype.fetch = function fetch(){
-  var word_id = $('.ghostface').data('word-id');
+ArticleList.prototype.fetch = function fetch(wordId){
+  var word_id = wordId;
   var url = ('/words/' + word_id);
   var that = this;
   $.ajax({
