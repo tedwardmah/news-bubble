@@ -10,7 +10,7 @@ Production: https://serene-anchorage-3997.herokuapp.com/
 SpŸorts
 ------------
 
-![screenshot](https://github.com/tedwardmah/news-bubble/blob/master/app/assets/images/grid.jpg)
+![screenshot](https://github.com/tedwardmah/news-bubble/blob/master/app/assets/images/screenshot1.png)
 
 Single Page Web Application that takes news articles via API that are related to sports and ranks keywords based on how often they show up.
 
