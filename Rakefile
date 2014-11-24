@@ -25,6 +25,8 @@ namespace :db do
     @api = Api.find_by(name: "USA Today")
     @topic = Topic.find_by(name: "sports")
 
+
+
     arr.each do |a|
       hash = {}
       hash[:api] = @api
@@ -99,15 +101,15 @@ namespace :db do
       hash[:api_id]     = @api
       hash[:topic_id]   = @topic
       hash[:url]        = article_data['url']
-      hash[:source]     = "New York Times"
-      hash[:img_url]    = article_data['thumbnail']
-      hash[:headline]   = article_data['title']
-      hash[:lead]       = article_data['abstract']
+      hash[:source]     = "The New York Times"
+      hash[:headline]   = article_data['title'].gsub("&#8217;", "'")
+      hash[:lead]       = article_data['abstract'].gsub("&#8217;", "'")
       hash[:date]       = Date.strptime(article_data['published_date'], "%Y-%m-%d")
       hash[:source_id]  = article_data['id']
 
       article = Article.create(hash)
       article.parse_article
+
     end
   end
 
