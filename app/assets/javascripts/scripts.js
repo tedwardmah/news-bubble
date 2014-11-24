@@ -47,27 +47,13 @@ $(document).ready(function(){
 	// ***** ARTICLES LIST *****
 	$(".ghostface").hide();
 
-
-
-
-
-	// $bubbles.on("click", function() {
-	// 	$('.ghostface').slideDown();
-	// 	$('.header').animate({right: "25%"});
-	// });
-
-
-
-
+	$(".lead").hide();
 
 	$('img').on("click", function() {
 		$('.ghostface').slideToggle();
 		ghostfaceKillin = false;
 	});
 
-	// $(".headline").on("click", function() {
-	// 	$(this).next().slideToggle();
-	// });
 
 	$(".headline").hover(function(){
     $(this).animate({ width: "800px", height: "80px" });
