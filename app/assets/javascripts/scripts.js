@@ -47,9 +47,14 @@ $(document).ready(function(){
 	// ***** ARTICLES LIST *****
 	$(".ghostface").hide();
 
+
 	// $bubbles.on("click", function() {
 	// 	$('.ghostface').slideDown();
+	// 	$('.header').animate({right: "25%"});
 	// });
+
+
+
 
 	$('img').on("click", function() {
 		$('.ghostface').slideToggle();
@@ -60,11 +65,12 @@ $(document).ready(function(){
 	// 	$(this).next().slideToggle();
 	// });
 
-	// $(".headline").hover(function(){
- //    $(this).animate({ width: "800px", height: "80px" });
-	// 	}, function() {
- //    $(this).animate({ width: "820px", height: "80px" });
-	// });
+	$(".headline").hover(function(){
+    $(this).animate({ width: "800px", height: "80px" });
+		}, function() {
+    $(this).animate({ width: "820px", height: "80px" });
+	});
+
 
 
 
