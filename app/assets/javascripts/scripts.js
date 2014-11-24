@@ -38,7 +38,8 @@ $(document).ready(function(){
 
 
 	// ***** ARTICLES LIST *****
-	// $(".ghostface").hide();
+	$(".ghostface").hide();
+	$(".lead").hide();
 
 	$bubbles.on("click", function() {
 		$('.ghostface').slideDown();
@@ -48,17 +49,17 @@ $(document).ready(function(){
 		$('.ghostface').slideToggle();
 	});
 
-		$(".articles").on("click", function() {
-		$(this).next().slideToggle();
-	});
+	// $(".headline").on("click", function() {
+	// 	$(this).next().slideToggle();
+	// });
 
-		$(".articles").hover(function(){
-	    $(this).animate({ width: "800px", height: "80px" });
-			}, function() {
-	    	$(this).animate({ width: "820px", height: "80px" });
-		});
+	// $(".headline").hover(function(){
+ //    $(this).animate({ width: "800px", height: "80px" });
+	// 	}, function() {
+ //    $(this).animate({ width: "820px", height: "80px" });
+	// });
 
-	$(".lead").hide();
+
 
 
 	// ***** CALL NECESSARY FUNCTIONS *****
