@@ -10,6 +10,8 @@ Production: https://serene-anchorage-3997.herokuapp.com/
 SpŸorts
 ------------
 
+![screenshot](https://github.com/tedwardmah/RESTaurant_app/blob/master/app/assets/images/grid.jpg)
+
 Single Page Web Application that takes news articles via API that are related to sports and ranks keywords based on how often they show up.
 
 Those keywords are then represented on the page in the form of bubbles. The larger in size, the more popular those keywords are.
