@@ -1,11 +1,13 @@
 body {
+	margin: 0;
 	background: {
 		repeat: no-repeat;
 		attachment: fixed;
 		size: 100% 100%;
 		image: url(https://secure.static.tumblr.com/da0d9c3f9b64db1f1b7a85afe018df7a/4y11feu/Rnin5slcj/tumblr_static_tumblr_static_e0n2ytnm8vksscoos08484osk_1280.jpg);
 	}
-	font-family: "calibri", serif;
+   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+   font-weight: 300;
 }
 
 .ghostface {
@@ -20,6 +22,7 @@ body {
 	h2 {
 		color: white;
 		display: inline-block;
+		text-transform: capitalize;
 	}
 	
 	ul {
@@ -90,16 +93,23 @@ body {
 }
 
 .header {
+	margin: 0;
+	padding-top: 20px;
 	text-align: center;
 	color: white;
+	background-image: url('/assets/footer_lodyas.png');
 
 	h1 {
+		margin: 0;
+		padding: 0;
 		text-align: center;
 		font-size: 60px;
+		line-height: 60px;
+		vertical-align: middle;
 		font-style: italic;
-		margin-bottom: -20px;
 
 		h4 {
+			margin: 0;
 			font-size: 5px;
 			font-style: italic;
 		}
@@ -129,10 +139,12 @@ body {
 
 
 .bubble-container {
+	text-transform: uppercase;
 	text-align: center;
 	margin: 0 auto;
-	width: 500px;
+	width: 900px;
 }
+
 
 .blocker-left-1{
 	background-color: rgba(0, 0, 0, .3);
@@ -183,9 +195,14 @@ body {
 	margin: 0;
 }
 
+.bubble:hover {
+	cursor: pointer;
+}
+
 .bubble-text {
 	position: relative;
-	top: 35%;
+	top: 50%;
+	transform: translateY(-50%);
 }
 
 a {
