@@ -2,12 +2,6 @@
   <input class="start-btn" type="submit" value="START">
 </form> -->
 
-<!-- <ol>
-  <% @words.each do |word| %>
-  <li class="circles"><h2><%=link_to(word.keyword.upcase, word_path(word)) %></h2><%= word.total_count %></li></a>
-  <% end %>
-</ol> -->
-
 <div class="bubble-container">
   <div class="blocker-left-1"></div>
   <div class="blocker-left-2"></div>
@@ -33,48 +27,5 @@
 
 
 <script>
-var articleList = new ArticleList({model: Article});
-
-var $articleListHeadline = $('#keyword-articles');
-
-function changeHeadline(newHeadline){
-  $articleListHeadline.text(newHeadline);
-};
-
-var ghostfaceKillin = false;
-
-$(document).ready(function(){
-  console.log("Bubblezzz");
-
-  var listView = new ArticleListView({
-    collection: articleList,
-    $el: $('.supreme-clientele'),
-    modelView: ArticleView,
-  }); // end of listView creation
-
-  $(".bubble").on("click", function(){
-    var wordId   = $(this).data('word-id');
-    var wordText = this.firstElementChild.textContent;
-    changeHeadline(wordText);
-    articleList.fetch(wordId);
-    letThereBeGhost();
-  });
-
-  $(".ghostface").on("click", function (event) {
-    event.stopPropagation();
-  });
-
-  $(document).on("click", function () {
-    if (ghostfaceKillin){
-      $(".ghostface").slideToggle();
-      ghostfaceKillin = false;
-      console.log(ghostfaceKillin);
-    }
-  });
-
-
-});
-
-
 
 </script>
