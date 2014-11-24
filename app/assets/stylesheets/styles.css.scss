@@ -16,7 +16,10 @@ body {
 	width: 820px;
 	display: block;
 	float: right;
+	margin-top: 75px;
 	position: absolute; top:0px; right:0px;
+	border-left: 2px solid white;
+
 
 	h2 {
 		color: white;
@@ -28,11 +31,9 @@ body {
 		list-style: none;
 	}
 	.headline {
-		border: 4px solid white;
-		border-radius: 50px;
 		width: 800px;
 		height: 100px;
-		background-color: black;
+		border-radius: 50px;
 		display: inline-block;
 		text-align: right;
 		font-size: 25px;
@@ -41,6 +42,8 @@ body {
 		padding: 20px;
 		float: right;
 		color: white;
+		background-color: black;
+		border: 4px solid white;
 
 		p {
 			padding: 0;
@@ -93,27 +96,38 @@ body {
 	
 }
 
+h1 {
+
+}
+
 .header {
 	margin: 0;
+	position: fixed;
 	padding-top: 20px;
 	text-align: center;
 	color: white;
+	height: 75px;
+	width: 100%;
+	border-bottom: 2px solid white;
+	z-index: 1;
 	background-image: url('/assets/footer_lodyas.png');
 
+
 	h1 {
-		margin: 0;
+		margin: -10px;
 		padding: 0;
+		letter-spacing: -4px;
 		text-align: center;
 		font-size: 60px;
 		line-height: 60px;
 		vertical-align: middle;
 		font-style: italic;
 
-		h4 {
-			margin: 0;
-			font-size: 5px;
-			font-style: italic;
-		}
+	}
+	h4 {
+		margin: -10px;
+		font-size: 5px;
+		font-style: italic;
 	}
 }
 
@@ -143,6 +157,7 @@ body {
 	text-transform: uppercase;
 	text-align: center;
 	margin: 0 auto;
+	padding-top: 100px;
 	width: 900px;
 }
 
