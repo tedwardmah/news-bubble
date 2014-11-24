@@ -14,5 +14,15 @@ ArticleListView.prototype.render = function render(){
     var view = new this.modelView({model: model });
     this.$el.append(view.render().$el);
   }
+  $(".lead").hide();
+  $('.headline').on('click', function(){
+    var $thisLead = $(this.nextElementSibling);
+    $thisLead.slideToggle();
+    if ($lastClickedLead) {
+      $lastClickedLead.slideToggle(function(){
+        $lastClickedLead = $thisLead;
+      });
+    }
+  })
   return this;
 }
