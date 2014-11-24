@@ -5,15 +5,15 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+
   <script id="article-template" type="text/template">
     <li class="article">
       <div class="headline">
-        <p>
-          <%%= article.headline %>
-        </p>
+        <p><%%= article.headline %></p>
       </div>
       <div class="lead">
         <p>
+          
           <%%= article.lead %>..
           <form action="<%%= article.url %>" method="get" target="_blank">
             <input type="submit" value="READ" class="read" >

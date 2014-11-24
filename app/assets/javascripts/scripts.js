@@ -38,7 +38,7 @@ $(document).ready(function(){
 
 
 	// ***** ARTICLES LIST *****
-	$(".ghostface").hide();
+	// $(".ghostface").hide();
 
 	$bubbles.on("click", function() {
 		$('.ghostface').slideDown();
