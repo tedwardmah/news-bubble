@@ -27,6 +27,13 @@ var maxWordCount;
 		});
 	}
 
+	function letThereBeGhost(){
+		$('.ghostface').slideDown(400, function(){
+			ghostfaceKillin = true;
+			console.log(ghostfaceKillin);
+		});
+	}
+
 
 // ****************** DOCUMENT READY!!! ***************************
 $(document).ready(function(){
@@ -38,14 +45,15 @@ $(document).ready(function(){
 
 
 	// ***** ARTICLES LIST *****
-	// $(".ghostface").hide();
+	$(".ghostface").hide();
 
-	$bubbles.on("click", function() {
-		$('.ghostface').slideDown();
-	});
+	// $bubbles.on("click", function() {
+	// 	$('.ghostface').slideDown();
+	// });
 
 	$('img').on("click", function() {
 		$('.ghostface').slideToggle();
+		ghostfaceKillin = false;
 	});
 
 	// $(".headline").on("click", function() {
