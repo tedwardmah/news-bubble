@@ -127,4 +127,4 @@ namespace :db do
 end
 
 desc 'do errrythang'
-task :all => ['db:create', 'db:migrate', 'db:seed_api_and_topic_data', 'db:load_nyt_data', 'db:load_reddit_data', 'db:load_usa_today_data']
+task :all => ['db:create', 'db:migrate', 'db:seed_api_and_topic_data', 'db:load_nyt_data', 'db:load_usa_today_data']
