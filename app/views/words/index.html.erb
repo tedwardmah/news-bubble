@@ -41,6 +41,8 @@ function changeHeadline(newHeadline){
   $articleListHeadline.text(newHeadline);
 };
 
+var ghostfaceKillin = false;
+
 $(document).ready(function(){
   console.log("Bubblezzz");
 
@@ -55,7 +57,22 @@ $(document).ready(function(){
     var wordText = this.firstElementChild.textContent;
     changeHeadline(wordText);
     articleList.fetch(wordId);
+    letThereBeGhost();
   });
+
+  $(".ghostface").on("click", function (event) {
+    event.stopPropagation();
+  });
+
+  $(document).on("click", function () {
+    if (ghostfaceKillin){
+      $(".ghostface").slideToggle();
+      ghostfaceKillin = false;
+      console.log(ghostfaceKillin);
+    }
+  });
+
+
 });
 
 
