@@ -52,7 +52,7 @@ $(document).ready(function(){
 		$(this).next().slideToggle();
 	});
 
-		$(".article").hover(function(){
+		$(".articles").hover(function(){
 	    $(this).animate({ width: "800px", height: "70px" });
 			}, function() {
 	    	$(this).animate({ width: "820px", height: "80px" });
