@@ -92,7 +92,9 @@ namespace :db do
     nyt_api_key = '53d66b4923e199e21d3304cfc06527ea:3:57497200'
     nyt_url = "http://api.nytimes.com/svc/mostpopular/v2/mostviewed/#{section}/1.json?api-key=#{nyt_api_key}"
     api_response = HTTParty.get(nyt_url)
-    articles = api_response['results']
+    second_response = HTTParty.get(nyt_url + "&offset=20")
+    third_response = HTTParty.get(nyt_url + "&offset=40")
+    articles = api_response['results'] + second_response['results'] + third_response['results']
     @api = Api.find_by(name: "NYT").id
     @topic = Topic.find_by(name: "sports").id
 
@@ -111,6 +113,7 @@ namespace :db do
       article.parse_article
 
     end
+
   end
 
   desc 'load apis and topic(s)'
