@@ -225,6 +225,10 @@ body {
 	display: inline-block;
 	padding: 0 10px;
 	margin: 0;
+	background: {
+		repeat: no-repeat;
+		size: 100% 100%;
+	}
 }
 
 .bubble:hover {

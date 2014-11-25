@@ -109,7 +109,7 @@ namespace :db do
       hash[:date]       = Date.strptime(article_data['published_date'], "%Y-%m-%d")
       hash[:source_id]  = article_data['id']
       if !article_data['media'].empty? && !article_data['media'][0]['media-metadata'].empty?
-        hash[:img_url] = article_data['media'][0]['media-metadata'][0]['url']
+        hash[:img_url] = article_data['media'][0]['media-metadata'][1]['url']
       end
 
       article = Article.create(hash)

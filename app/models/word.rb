@@ -25,4 +25,8 @@ class Word < ActiveRecord::Base
     count
   end
 
+  def random_image
+    self.articles.where("img_url != ''").sample.img_url
+  end
+
 end

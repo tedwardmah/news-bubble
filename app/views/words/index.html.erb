@@ -11,7 +11,7 @@
   <div class="blocker-right-3"></div>
 
   <% @words.each do |word| %>
-  <div class="bubble" data-word-id="<%= word.id %>" data-word-count="<%= word.total_count %>"><div class='bubble-text'><%= word.keyword %></div></div>
+  <div class="bubble" data-word-id="<%= word.id %>" data-word-count="<%= word.total_count %>" style="background: linear-gradient(rgba(0, 0, 0, 0.3),  rgba(0, 0, 0, 0.3)), url('<%= word.random_image %>');"><div class='bubble-text'><%= word.keyword %></div></div>
   <% end %>
 </div>
 
