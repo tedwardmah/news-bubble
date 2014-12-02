@@ -19,14 +19,25 @@ var $lastClickedLead;
 		return getMaxOfArray(wordCounts);
 	}
 
+	function calculateBaseWidth(){
+		var adjustedWidths = [];
+		$bubbles.each(function(index, bubble){
+			var width = bubble.offsetWidth;
+			adjustedWidths.push(width);
+		})
+		return getMaxOfArray(adjustedWidths) + 15; //use 15 to add "padding" for longest word
+	}
+
 	function makeCircles() {
+		console.log(calculateBaseWidth());
+		var baseWidth = calculateBaseWidth();
 		$bubbles.each(function(index, bubble) {
 			var $bubble = $(bubble);
 			var wordCount = $bubble.data('word-count');
-			$bubble.css('font-size', ((wordCount/maxWordCount)*50));
-			var width = bubble.offsetWidth;
-			$bubble.height(width);
-			$bubble.css('border-radius', width);	
+			// $bubble.css('font-size', ((wordCount/maxWordCount)*50));
+			$bubble.width(baseWidth);
+			$bubble.height(baseWidth);
+			$bubble.css('border-radius', baseWidth);	
 			$bubble.css('vertical-align', 'middle');
 		});
 	}
