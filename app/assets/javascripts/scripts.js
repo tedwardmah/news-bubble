@@ -37,22 +37,34 @@ var $lastClickedLead;
 			$bubble.css('font-size', ((wordCount/maxWordCount)*50));
 			$bubble.width(baseWidth*((wordCount/maxWordCount)));
 			$bubble.height(baseWidth*(wordCount/maxWordCount));
-			$bubble.css('border-radius', baseWidth);	
+			$bubble.css('border-radius', baseWidth*(wordCount/maxWordCount));	
 			$bubble.css('vertical-align', 'middle');
+			$bubble.css('background-size', baseWidth*(wordCount/maxWordCount))
 		});
 	}
 
 	// ***** Article List Appear *****
 
 	function letThereBeGhost(){
-		$('.bubble-container').animate({left: '-400px'});
-		$('.ghostface').slideDown(400, function(){
+		// $('.bubble-container').animate({left: '-400px'});
+		$('.bubble').each(function(index, bubble){
+			setTimeout(function(){
+				$(bubble).animate({left: '-400px'});
+			}, 50*index)
+		})
+		$('.ghostface').slideDown(1000, function(){
 			ghostfaceKillin = true;
 		});
 	}
 
 	function ghostfaceHasLeftTheBuilding(){
-		$('.bubble-container').animate({left: '0'});
+		// $('.bubble-container').animate({left: '0'});
+		$('.bubble').each(function(index, bubble){
+			setTimeout(function(){
+				$(bubble).animate({left: '0'});
+			}, 50*index)
+		})
+
 		$('.ghostface').slideToggle();
 		ghostfaceKillin = false;
 	}
