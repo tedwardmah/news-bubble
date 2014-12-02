@@ -34,9 +34,9 @@ var $lastClickedLead;
 		$bubbles.each(function(index, bubble) {
 			var $bubble = $(bubble);
 			var wordCount = $bubble.data('word-count');
-			// $bubble.css('font-size', ((wordCount/maxWordCount)*50));
-			$bubble.width(baseWidth);
-			$bubble.height(baseWidth);
+			$bubble.css('font-size', ((wordCount/maxWordCount)*50));
+			$bubble.width(baseWidth*((wordCount/maxWordCount)));
+			$bubble.height(baseWidth*(wordCount/maxWordCount));
 			$bubble.css('border-radius', baseWidth);	
 			$bubble.css('vertical-align', 'middle');
 		});
