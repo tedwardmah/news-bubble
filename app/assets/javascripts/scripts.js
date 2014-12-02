@@ -59,10 +59,10 @@ var $lastClickedLead;
 
 	function ghostfaceHasLeftTheBuilding(){
 		// $('.bubble-container').animate({left: '0'});
-		$('.bubble').each(function(index, bubble){
+		$($('.bubble').get().reverse()).each(function(index, bubble){
 			setTimeout(function(){
 				$(bubble).animate({left: '0'});
-			}, 50*index)
+			}, 25*index)
 		})
 
 		$('.ghostface').slideToggle();
