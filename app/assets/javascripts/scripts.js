@@ -12,6 +12,10 @@ var $lastClickedLead;
 	}
 
 	function getMaxWordCount() {
+		////////// Yaniv Comment //////////
+		// JavaScript arrays have a .map function
+		// that you can use
+	  ///////////////////////////////////
 		var wordCounts = [];
 		$bubbles.each(function(index, bubble){
 			wordCounts.push($(bubble).data('word-count'));
@@ -26,7 +30,13 @@ var $lastClickedLead;
 			$bubble.css('font-size', ((wordCount/maxWordCount)*50));
 			var width = bubble.offsetWidth;
 			$bubble.height(width);
-			$bubble.css('border-radius', width);	
+			$bubble.css('border-radius', width);
+			////////// Yaniv Comment //////////
+			// Since the vertical-align isn't dependant on anything
+			// we could and should extract it to a CSS file.
+			// Keeping it in a CSS file will make it easier to find/use
+			// for other people.
+		  ///////////////////////////////////
 			$bubble.css('vertical-align', 'middle');
 		});
 	}

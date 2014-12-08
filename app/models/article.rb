@@ -21,6 +21,10 @@ class Article < ActiveRecord::Base
 
   def create_mentions(words_count_pairs)
     words_count_pairs.each do |word, count|
+        ########### Yaniv Comment ###########
+        # Don't forget active record's find_or_create_by method
+        # is here to help with these situations
+        #####################################
       if existing_word = Word.find_by(keyword: word)
         Mention.create({
           word_id: existing_word.id,

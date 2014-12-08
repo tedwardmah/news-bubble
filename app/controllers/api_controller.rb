@@ -1,5 +1,20 @@
 class APIController < ApplicationController
 
+  ########### Yaniv Comment ###########
+  # There's a lot of logic here that shouldn't be
+  # present in a controller.
+  # Ultimately, a controller should only ask objects for data
+  # and send that data to the client. It shouldn't be making
+  # API calls, restructuring hashes, etc.
+
+  # What I would recomment if possibly creating an APIHandler class
+  # (Not a model... Just a regular old ruby class)
+  # And that class can be responsible for making calls, structuring
+  # the response hashes, etc
+  # Then your controller methods would only have to call that
+  # class's methods and voila, we have thin, clean controllers.
+  #####################################
+
   def usa_today
     response = HTTParty.get('http://api.usatoday.com/open/articles/topnews/sports?api_key=mnsmzv8pam9p2p2sswj4efs8')
     arr = response["rss"]["channel"]["item"]

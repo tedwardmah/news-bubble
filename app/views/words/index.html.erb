@@ -11,6 +11,15 @@
   <div class="blocker-right-3"></div>
 
   <% @words.each do |word| %>
+  <!-- Yaniv Comment -->
+  <!-- You know what would be nice here? A home made helper. -->
+  <!-- It would help isolate the more complicated code in its own file -->
+  <!-- While making it easier to read there (we can string interpolate instead -->
+  <!-- using erb tags everythwere) -->
+  <!-- Plus, it would lead a clean looking view. -->
+  <!-- Imagine if the following line worked just like image_tag -->
+  <!-- word_div_tag(word.id, word.total_count, word.random_image, word.keyword) -->
+  <!--  -->
   <div class="bubble" data-word-id="<%= word.id %>" data-word-count="<%= word.total_count %>" style="background: linear-gradient(rgba(0, 0, 0, 0.3),  rgba(0, 0, 0, 0.3)), url('<%= word.random_image %>');"><div class='bubble-text'><%= word.keyword %></div></div>
   <% end %>
 </div>

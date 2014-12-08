@@ -11,6 +11,16 @@ class Word < ActiveRecord::Base
   end
 
   def self.get_good_words
+    ########### Yaniv Comment ###########
+    # It looks like you're just converting the 
+    # ActiveRecord collection to an array.
+    # You could also do it by calling to_a on it.
+
+    # If you're only going to use the keyword value of each word,
+    # then you may as well have the map return that keyword.
+    # ie:
+    # all_keywords = self.all.map {|word| word.keyword}
+    #####################################
     all_words = self.all.map {|word| word}
     excluded_words_raw = File.readlines('./app/assets/files/excluded_words.txt')
     excluded_words = excluded_words_raw.map {|word| word.chomp }
@@ -18,6 +28,12 @@ class Word < ActiveRecord::Base
   end
 
   def total_count
+      ########### Yaniv Comment ###########
+      # I know we haven't seen this method since
+      # the early weeks of class... But do you remember
+      # inject? It does a very similar thing to what you
+      # have going on here.
+      #####################################
     count = 0
     self.mentions.each do |mention|
       count += mention.word_count
